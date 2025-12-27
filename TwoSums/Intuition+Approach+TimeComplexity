@@ -1,0 +1,27 @@
+Intuition
+----------
+
+Assuming there is only one pair which yields the desired result, the process of adding two consecutive numbers and then comparing them to the target becomes a linear process.
+Moreover, if I have an array [2,7,11,15], and then for the first element, 2, I do the following additions
+2+7
+2+11
+2+15
+and then proceed to the second element, 7, then I do not have to check 7+2 as addition is commutative and 7+2 = 2+7, so I could immediately check
+7+11 and 7+15
+
+Approach
+--------
+
+a. Iterate through the array using an outer loop with index i.
+b. For each i, iterate through the elements that come after it using an inner loop with index j, where j = i + 1.
+c. For each pair (i, j), check whether nums[i] + nums[j] == target.
+d. As soon as such a pair is found, return the indices [i, j].
+Since the problem guarantees exactly one solution, the algorithm will always return an answer before the loops finish.
+
+Time Complexity
+---------------
+
+The outer loop runs n times.
+For each iteration of the outer loop, the inner loop runs up to n − i − 1 times.
+In the worst case, this results in checking all possible pairs of elements.
+Therefore, the time complexity is O(n^2)
